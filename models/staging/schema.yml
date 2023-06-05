@@ -2,20 +2,74 @@
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
+    - name: stg_logs
+      description: "Table corresponding to logs into server since marketing campaign in September 2022"
       columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+          - name: user_id
+            description: "unique id of user. there can be several user_id in this table when the user logged several times"   
+          - name: login_date
+            description: "date of log into server" 
+          - name: login_successful
+            description: "binary identifier on success of log in"     
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
+    - name: stg_monitoring
+      description: "Table of tracks broadcasted on monitored radio and TV channels"
       columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+          - name: monitoring_id
+            description: "The primary key for this table. Increments at each broadcast"
+          - name: presta_id
+            description: "One id per channel of broadcast"
+          - name: channel_name
+            description: "name of radio or tv channel"
+          - name: channel_type
+            description: "radio or tv"
+          - name: creation_ts
+            description: "time of broadcast"
+          - name: played_duration
+            description: "duration of track broadcasted"
+          - name: track_id
+            description: "id related to track uploaded and broadcasted"
+
+    - name: stg_tracks
+      description: "Table of tracks broadcasted on monitored radio and TV channels"
+      columns:
+          - name: track_id
+            description: "The primary key for this table. One id corresponds to an upload. If a title is uploaded twice, it will get two ids"
+          - name: artist
+            description: "name of the track's artist, found by service provider. there can be null values"
+          - name: title
+            description: "title of the track uploaded, found by service provider. there can be null values"
+          - name: duration
+            description: "duration of the track in seconds"
+          - name: presta_track_id
+            description: "corresponds to track_id, for service provider usage"
+          - name: user_id
+            description: "user identifier"
+          - name: creation_ts
+            description: "time when track has been uploaded"
+          - name: original_filename
+            description: "name of the file originally uploaded"
+
+- name: stg_users
+      description: "Table of all users registered on the website"
+      columns:
+          - name: user_id
+            description: "The primary key for this table. Increments at registration"
+          - name: email
+            description: "email provided at registration"
+          - name: first_name
+            description: "first name provided at registration"
+          - name: last_name
+            description: "first name provided at registration"
+          - name: track_count
+            description: "number of tracks uploaded by the user"
+          - name: broadcast_count
+            description: "number of broadcasts recorded for uploaded tracks"
+          - name: verified
+            description: "binary identifier on verification of email adress"
+          - name: archived
+            description: "deleted account"
+          - name: sub_date
+            description: "subscription date"
+          - name: last_modification_ts
+            description: "profile modification - to be confirmed"
