@@ -11,4 +11,4 @@ id as monitoring_id
 --,last_modification_ts
 ,played_duration
 ,track as track_id
-FROM `projet_wagon.monitoring`
+FROM `rightsnow-385413.projet_wagon.monitoring`
