@@ -5,7 +5,6 @@ id as track_id
 ,duration
 ,acr_id as presta_id
 ,user as user_id
-,active
 --,archived
 ,creation_ts
 --,last_modification_ts
