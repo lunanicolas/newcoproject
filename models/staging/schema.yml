@@ -50,7 +50,7 @@ models:
           - name: original_filename
             description: "name of the file originally uploaded"
 
-- name: stg_users
+    - name: stg_users
       description: "Table of all users registered on the website"
       columns:
           - name: user_id
