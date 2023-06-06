@@ -3,9 +3,9 @@ id as track_id
 ,artist
 ,title
 ,duration
-,acr_id as presta_id
+--,acr_id as presta_id
 ,user as user_id
-,active
+--,active
 --,archived
 ,creation_ts
 --,last_modification_ts
