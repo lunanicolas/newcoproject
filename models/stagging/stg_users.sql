@@ -11,4 +11,4 @@ SELECT
     Date_d_inscription AS sub_date,
     last_modification_ts
   FROM
-    `rightsnow-385413.projet_wagon.users`
+    {{ source('projet_wagon', 'histo_sacem') }}

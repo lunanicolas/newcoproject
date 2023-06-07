@@ -5,4 +5,4 @@ id_sacem,
 name_sacem,
 type_droit,
 val_sec
-FROM `rightsnow-385413.projet_wagon.histo_sacem`
+FROM {{ source('projet_wagon', 'histo_sacem') }}
