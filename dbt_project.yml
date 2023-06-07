@@ -24,7 +24,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -33,11 +32,23 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   my_new_project:
-    staging :
+    florian:
       +materialized: view
-      schema : 'staging'
-    intermediate:
+      schema: 'florian'
+    luna:
       +materialized: view
+      schema: 'luna'
+    germain:
+      +materialized: view
+      schema: 'germain'
+    laurent:
+      +materialized: view
+      schema: 'laurent'
+    stagging:
+      +materialized: table
+      schema: 'stagging'
+    intermediate: 
+      +materialized: table
       schema: 'intermediate'
     marts: 
       +materialized: table
