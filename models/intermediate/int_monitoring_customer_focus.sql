@@ -7,7 +7,7 @@ monitoring_id
 ,m.creation_ts
 ,played_duration
 ,track_id
-FROM `dbt_lnicolas.stg_monitoring` as m
-LEFT JOIN  `dbt_lnicolas.stg_tracks` USING (track_id)
-LEFT JOIN `dbt_lnicolas.int_users` USING (user_id)
+FROM {{ref('stg_monitoring')}} as m
+LEFT JOIN  {{ref('stg_tracks')}} USING (track_id)
+LEFT JOIN {{ref('int_users')}} USING (user_id)
 WHERE user_category <> 'rightsnow'

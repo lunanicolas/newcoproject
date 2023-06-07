@@ -7,6 +7,6 @@ track_id
 ,user_id
 ,creation_ts
 ,original_filename
-FROM `dbt_lnicolas.stg_tracks`
-LEFT JOIN `dbt_lnicolas.int_users` USING (user_id)
+FROM {{ref('stg_tracks')}}
+LEFT JOIN {{ref('int_users')}} USING (user_id)
 WHERE user_category <> 'rightsnow'
