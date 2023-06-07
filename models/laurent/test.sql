@@ -1,1 +1,0 @@
-SELECT * FROM stg_tracks.sql
