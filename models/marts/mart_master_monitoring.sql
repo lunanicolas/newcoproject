@@ -3,13 +3,13 @@ monitoring_id
 ,presta_channel_id
 ,channel_name
 ,channel_type
-,m.creation_ts
+,m.creation_ts as monitoring_date
 ,played_duration
 ,m.track_id
 ,artist
 ,title
 ,duration
-,t.creation_ts
+,t.creation_ts as track_upload_date
 ,original_filename
 ,t.user_id
 ,email
