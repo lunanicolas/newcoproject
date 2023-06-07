@@ -46,7 +46,7 @@ models:
       schema: 'laurent'
     stagging:
       +materialized: table
-      schema: 'stagging'
+      schema: 'staging'
     intermediate: 
       +materialized: table
       schema: 'intermediate'
