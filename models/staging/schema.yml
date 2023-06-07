@@ -1,4 +1,3 @@
-
 version: 2
 
 models:
@@ -6,7 +5,7 @@ models:
       description: "Table corresponding to logs into server since marketing campaign in September 2022"
       columns:
           - name: user_id
-            description: "unique id of user. there can be several user_id in this table when the user logged several times"   
+            description: "unique id of user. there can be several user_id in this table when the user logged several times" 
           - name: login_date
             description: "date of log into server" 
           - name: login_successful
@@ -17,6 +16,9 @@ models:
       columns:
           - name: monitoring_id
             description: "The primary key for this table. Increments at each broadcast"
+            tests : 
+            - not_null 
+            - unique 
           - name: presta_id
             description: "One id per channel of broadcast"
           - name: channel_name
@@ -35,6 +37,9 @@ models:
       columns:
           - name: track_id
             description: "The primary key for this table. One id corresponds to an upload. If a title is uploaded twice, it will get two ids"
+            tests : 
+            - not_null 
+            - unique 
           - name: artist
             description: "name of the track's artist, found by service provider. there can be null values"
           - name: title
@@ -55,6 +60,9 @@ models:
       columns:
           - name: user_id
             description: "The primary key for this table. Increments at registration"
+            tests : 
+            - not_null 
+            - unique 
           - name: email
             description: "email provided at registration"
           - name: first_name
@@ -73,3 +81,18 @@ models:
             description: "subscription date"
           - name: last_modification_ts
             description: "profile modification - to be confirmed"
+    - name: stg_data_sacem
+      description: "Table corresponding to sacem data for the period"
+      columns:
+          - name: date_date
+            description: "date of the sacem data" 
+          - name: num_repart
+            description: "date of log into server" 
+          - name: id_sacem
+            description: "id, not unique"
+          - name: name_sacem
+            description: "name, not unique of the diffuser"
+          - name: type_droit
+            description: "type of right for this diffuser"
+          - name: val_sec
+            description: "value per second of this combination of diffuser and type of right"

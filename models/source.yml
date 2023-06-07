@@ -1,6 +1,5 @@
 version: 2
 
-
 sources:
   - name: projet_wagon
     tables:
@@ -9,3 +8,5 @@ sources:
       - name: monitoring
       - name: tracks
       - name: users
+      - name: channels
+      - name: mapping_sacem
