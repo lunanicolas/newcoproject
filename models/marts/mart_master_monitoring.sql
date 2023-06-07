@@ -9,7 +9,7 @@ monitoring_id
 ,artist
 ,title
 ,duration
-,creation_ts
+,t.creation_ts
 ,original_filename
 ,t.user_id
 ,email
@@ -20,6 +20,6 @@ monitoring_id
 ,track_count
 ,user_category
 FROM {{ref('stg_monitoring')}} as m
-LEFT JOIN  {{ref('stg_tracks')}} USING (track_id) as t
+LEFT JOIN  {{ref('stg_tracks')}} as t USING (track_id) 
 LEFT JOIN {{ref('int_users')}} USING (user_id)
 WHERE user_category <> 'rightsnow'
