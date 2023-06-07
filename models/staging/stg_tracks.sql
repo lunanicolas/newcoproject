@@ -11,4 +11,4 @@ id as track_id
 --,last_modification_ts
 ,original_filename
 
-FROM `rightsnow-385413.projet_wagon.tracks`
+FROM {{ source('projet_wagon', 'tracks') }}

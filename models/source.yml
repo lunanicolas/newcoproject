@@ -1,0 +1,11 @@
+version: 2
+
+
+sources:
+  - name: projet_wagon
+    tables:
+      - name: histo_sacem
+      - name: logs
+      - name: monitoring
+      - name: tracks
+      - name: users

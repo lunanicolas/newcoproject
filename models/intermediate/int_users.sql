@@ -12,4 +12,4 @@ SELECT
     AS user_category,
     SAFE_DIVIDE(broadcast_count, track_count) AS avg_broadcast
   FROM
-    `rightsnow-385413.dbt_lnicolas.stg_users`
+    {{ref('stg_tracks')}}
