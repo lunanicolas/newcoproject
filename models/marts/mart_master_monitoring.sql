@@ -19,6 +19,10 @@ monitoring_id
 ,sub_date
 ,track_count
 ,user_category
+,CASE
+    WHEN REGEXP_CONTAINS(original_filename, 'official|video|clip|orelsan|booba|gta') OR broadcast_count > 3000 THEN 'famous_track'
+    ELSE 'proper_track' 
+END AS track_category
 FROM {{ref('stg_monitoring')}} as m
 LEFT JOIN  {{ref('stg_tracks')}} as t USING (track_id) 
 LEFT JOIN {{ref('int_users')}} USING (user_id)
