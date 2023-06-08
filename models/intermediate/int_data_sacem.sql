@@ -6,4 +6,4 @@ date(cast(substring(date_date, 4, 6) as int64),cast(substring(date_date, 1, 3)as
 ,name_sacem
 ,type_droit
 ,val_sec
-FROM ref{{'stg_data_sacem'}}
+FROM {{ref('stg_data_sacem')}}
