@@ -10,7 +10,7 @@ monitoring_id
 ,title
 ,duration
 ,t.creation_ts as track_upload_date
-,original_filename
+,LOWER(original_filename) AS original_filename
 ,t.user_id
 ,email
 ,first_name
