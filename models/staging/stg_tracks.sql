@@ -9,5 +9,5 @@ id as track_id
 --,archived
 ,creation_ts
 --,last_modification_ts
-,original_filename
+,LOWER(original_filename) AS original_filename
 FROM {{ source('projet_wagon', 'tracks') }}
