@@ -10,5 +10,4 @@ id as track_id
 ,creation_ts
 --,last_modification_ts
 ,original_filename
-
 FROM {{ source('projet_wagon', 'tracks') }}
