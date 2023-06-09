@@ -1,5 +1,4 @@
-WITH
-  l AS(
+WITH    l AS(
   SELECT
     user_id,
     MAX(login_date) AS last_login_date
@@ -9,7 +8,8 @@ WITH
     login_successful = 1
   GROUP BY
     user_id),
-  t AS(
+
+        t AS(
   SELECT
     user_id,
     MIN(track_id) AS first_upload_track_id
@@ -17,6 +17,7 @@ WITH
   {{ref('stg_tracks')}}
   GROUP BY
     user_id )
+
 SELECT
   u.user_id,
   email,
@@ -40,7 +41,8 @@ SELECT
   ELSE
   'real_user'
 END
-  AS user_category
+  AS user_category,
+SAFE_DIVIDE(broadcast_count, track_count) AS avg_broadcast
 FROM
  {{ref('stg_users')}} AS u
 LEFT JOIN t USING (user_id)
