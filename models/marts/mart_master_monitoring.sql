@@ -21,7 +21,8 @@ track_count,
 user_category,
 CASE
     WHEN REGEXP_CONTAINS(original_filename, 'official|video|clip|orelsan|booba|gta') OR broadcast_count > 3000 THEN 'famous_track'
-    ELSE 'proper_track' 
+    WHEN user_category = 'rightsnow' OR user_category = 'curious_user' AND broadcast_count >=36 THEN 'test_track'
+    ELSE 'emerging_track' 
 END AS track_category,
 SAFE_DIVIDE(broadcast_count, track_count) AS avg_broadcast
 FROM {{ref('stg_monitoring')}} as m
