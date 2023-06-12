@@ -1,13 +1,15 @@
 with mean AS (
   SELECT
   id_sacem,
+  name_sacem,
   AVG(avg_value_sec) as avg_tot
   FROM {{ref('mart_sacem_value')}}
-  GROUP BY id_sacem
+  GROUP BY id_sacem,name_sacem
 )
 
 SELECT 
 clean.id_sacem,
+mean.name_sacem,
 clean.channel_name_presta,
 CASE 
   WHEN forecast IS NULL THEN ROUND(mean.avg_tot,8)
