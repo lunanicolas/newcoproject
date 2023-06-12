@@ -11,3 +11,4 @@ sources:
       - name: channels
       - name: mapping_sacem
       - name: mapping_clean
+      - name: predictions_final
