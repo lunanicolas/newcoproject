@@ -34,7 +34,7 @@ SELECT
   sub_date,
   track_count,
   t.first_upload_track_id,
-  tracks.track_upload_date,
+  tracks.track_upload_date as first_track_upload_date,
   l.last_login_date,
   --last_modification_ts,
 
@@ -44,7 +44,7 @@ SELECT
     WHEN verified IS NULL THEN 'non_verified_account'
     WHEN archived = 1 THEN 'deleted_account'
     WHEN track_count = 0 THEN 'viewer'
-    WHEN (tracks.creation_ts IS NOT NULL AND l.last_login_date IS NULL) OR (tracks.creation_ts >= l.last_login_date) THEN 'curious_user'
+    WHEN (tracks.track_upload_date IS NOT NULL AND l.last_login_date IS NULL) OR (tracks.track_upload_date >= l.last_login_date) THEN 'curious_user'
   ELSE
   'real_user'
 END
