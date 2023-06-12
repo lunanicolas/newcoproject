@@ -1,7 +1,7 @@
 SELECT
   monitoring_id,
   monitoring_date,
-  channel_name,
+  presta_channel_name,
   artist,
   title,
   duration,
@@ -9,7 +9,7 @@ SELECT
   broadcast_count,
   user_category,
   track_category,
-  type,
+  clean_channel_type,
   tot_val_sec,
   revenue_per_diffusion,
   forecast.forecast,
@@ -19,6 +19,6 @@ SELECT
 FROM
   {{ref("mart_revenue_per_diffusion")}} revenue
 JOIN
-  {{ref("mart_forecast_per_channel")}} forecast
+  {{ref("stg_forecast_sacem")}} forecast
 USING
   (name_sacem)

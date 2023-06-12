@@ -1,3 +1,4 @@
+-- pivot type de droit and calculate sum
   SELECT 
   date_date,
   clean_map.name_sacem,

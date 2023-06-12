@@ -2,8 +2,8 @@ with mean AS (
   SELECT
   id_sacem,
   name_sacem,
-  AVG(avg_value_sec) as avg_tot
-  FROM {{ref('mart_sacem_value')}}
+  AVG(tot_val_sec) as avg_tot
+  FROM {{ref('int_data_sacem_concat')}}
   GROUP BY id_sacem,name_sacem
 )
 

@@ -1,5 +1,5 @@
 WITH sacem AS (SELECT DISTINCT *
-FROM {{ref('int_data_sacem')}})
+FROM {{ref('int_data_sacem_concat')}})
 
 SELECT date_date
 ,num_repart
@@ -8,6 +8,7 @@ SELECT date_date
 ,type_droit
 ,AVG(val_sec) as avg_value_sec
 FROM sacem
+
 GROUP BY date_date 
 ,num_repart
 ,id_sacem
