@@ -5,7 +5,7 @@ track_id
 ,title
 ,duration
 ,t.user_id
-,track_upload_date
+,t.track_upload_date
 ,original_filename
 ,CASE
     WHEN user_id = 156 OR user_id = 460 OR user_id = 366 OR user_id = 286 OR user_category = 'rightsnow' THEN 'test_track'
