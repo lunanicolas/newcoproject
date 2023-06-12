@@ -1,3 +1,4 @@
+-- categorize tracks
 SELECT 
 track_id
 ,artist
