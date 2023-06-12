@@ -24,6 +24,7 @@ monitoring_id
 ,name_sacem
 ,type
 ,tot_val_sec
+-- valued seconds
 ,ROUND((played_duration*tot_val_sec),2) AS revenue_per_diffusion
 FROM {{ref("mart_master_monitoring")}} mon
 JOIN {{ref("int_mapping_value")}} map USING (presta_channel_id)
