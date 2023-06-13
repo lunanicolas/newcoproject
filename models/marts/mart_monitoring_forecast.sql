@@ -20,8 +20,4 @@ FROM
   {{ref("mart_revenue_per_diffusion")}} revenue
 JOIN
   {{ref("stg_forecast_sacem")}} forecast
-USING
-  (name_sacem)
-
-  {{ref("mart_forecast_per_channel")}} forecast
-ON forecast.channel_name_presta = revenue.channel_name
+ON forecast.channel_name_presta = revenue.presta_channel_name
