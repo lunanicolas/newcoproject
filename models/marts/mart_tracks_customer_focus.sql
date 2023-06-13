@@ -5,8 +5,8 @@ track_id
 ,title
 ,duration
 ,user_id
-,creation_ts
+,track_upload_date
 ,original_filename
-FROM {{ref('stg_tracks')}}
+FROM {{ref('int_tracks')}}
 LEFT JOIN {{ref('int_users')}} USING (user_id)
 WHERE user_category <> 'rightsnow'

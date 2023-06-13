@@ -9,6 +9,5 @@ sources:
       - name: tracks
       - name: users
       - name: channels
-      - name: mapping_sacem
       - name: mapping_clean661
       - name: predictions_final
