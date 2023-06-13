@@ -1,3 +1,5 @@
+WITH pred AS (SELECT * FROM {{ref("int_data_sacem_concat")}} WHERE date_date = '2023-07-01')
+
 SELECT 
 monitoring_id,
 sacem_channel_id,
@@ -30,4 +32,4 @@ ROUND((played_duration * forecast_lower),2) as lower_revenue_per_diffusion
 FROM {{ref('int_monitoring')}} as m
 LEFT JOIN  {{ref('int_tracks')}} as t USING (track_id) 
 LEFT JOIN {{ref('int_users')}} USING (user_id)
-LEFT JOIN{{ref("int_data_sacem_concat")}} ON id_sacem = sacem_channel_id WHERE date_date = '2023-07-01'
+LEFT JOIN pred ON pred.id_sacem = sacem_channel_id
