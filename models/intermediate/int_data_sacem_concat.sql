@@ -1,19 +1,27 @@
 
--- Concatenate historical values and prediction TBD
-
-
+-- Concatenate historical values and prediction 
+-- select histo date 
 SELECT 
 date_date
-,num_repart
 ,id_sacem
-,histo.name_sacem
-,presta_channel_id
-,SUM(avg_value_sec) AS tot_val_sec
-
-FROM {{ref('stg_data_sacem')}} as histo
-LEFT JOIN {{source('projet_wagon', 'mapping_clean661')}} USING(id_sacem)
+,name_sacem
+,ROUND(SUM(avg_value_sec),8) AS tot_val_sec
+,NULL as forecast_lower
+FROM {{ref('stg_data_sacem')}} 
 GROUP BY date_date
-,num_repart
 ,id_sacem
-,histo.name_sacem
-,presta_channel_id
+,name_sacem
+
+
+UNION ALL 
+
+-- select pred data
+SELECT 
+date_date
+,id_sacem
+,name_sacem
+,forecast AS tot_val_sec
+,forecast_lower
+FROM {{ref('stg_forecast_sacem')}} 
+
+
