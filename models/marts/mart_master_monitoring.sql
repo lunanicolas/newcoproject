@@ -68,9 +68,9 @@ SELECT
     track_category,
     coef,
     tot_val_sec,
-    ROUND((played_duration * tot_val_sec * coef),2) as revenue_per_diffusion,
+    CASE WHEN droits_sacem = 1 THEN ROUND((played_duration * tot_val_sec * coef),2) ELSE 0 END as revenue_per_diffusion,
     forecast_lower,
-    ROUND((played_duration * forecast_lower * coef),2) as lower_revenue_per_diffusion
+    CASE WHEN droits_sacem = 1 THEN ROUND((played_duration * forecast_lower * coef),2) ELSE 0 END  as lower_revenue_per_diffusion
     --SAFE_DIVIDE(broadcast_count, track_count) AS avg_broadcast
 FROM {{ref('int_monitoring')}} as m
     LEFT JOIN  {{ref('int_tracks')}} as t USING (track_id) 
