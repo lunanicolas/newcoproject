@@ -48,6 +48,7 @@ SELECT
     presta_channel_id,
     presta_channel_name,
     clean_channel_type,
+    droits_sacem,
     m.monitoring_date,
     played_duration,
     m.track_id,
